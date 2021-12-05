@@ -1,4 +1,5 @@
-FROM node:14.18.2-stretch
+FROM node:14.18.2-buster
+RUN apt-get install -y gcc-7 g++-7 cpp-7
 WORKDIR /usr/app
 COPY ./src/ src/
 COPY ./public/ public/
