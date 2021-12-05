@@ -1,8 +1,7 @@
 FROM node:14.18.2-stretch
-RUN apt-get install aptitude
-RUN aptitude install build-essential
-RUN aptitude install libstdc++6
-RUN aptitude install -y gcc-7 g++-7 cpp-7
+RUN apt-get install build-essential
+RUN apt-get install libstdc++6
+RUN apt-get install -y gcc-7 g++-7 cpp-7
 WORKDIR /usr/app
 COPY ./src/ src/
 COPY ./public/ public/
