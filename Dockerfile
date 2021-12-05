@@ -1,4 +1,4 @@
-FROM node:14.18.2-buster
+FROM node:14.18.2-stretch
 RUN apt-get install aptitude
 RUN aptitude install build-essential
 RUN aptitude install libstdc++6
