@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:14.18.2-stretch
 WORKDIR /usr/app
 COPY ./src/ src/
 COPY ./public/ public/
