@@ -1,4 +1,4 @@
-FROM node:lts-stretch
+FROM node:15.14.0-buster
 RUN apt-get update
 RUN apt-get install build-essential
 RUN apt-get install libstdc++6
