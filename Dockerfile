@@ -1,4 +1,5 @@
 FROM node:14.18.2-stretch
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update
 RUN apt-get install build-essential
 RUN apt-get install libstdc++6
