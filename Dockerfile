@@ -1,8 +1,7 @@
-FROM node:14.18.2-stretch
+FROM node:lts-stretch
 RUN apt-get update
 RUN apt-get install build-essential
 RUN apt-get install libstdc++6
-RUN apt-get install gcc-4.9-base g++-4.9-base
 RUN export LD_LIBRARY_PATH="/usr/local/lib64/:$LD_LIBRARY_PATH"
 WORKDIR /usr/app
 COPY ./src/ src/
