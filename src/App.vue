@@ -1,7 +1,7 @@
 <template>
   <main>
     <button @click="this.button">
-      <img v-if="!(recorder?.state == 'recording')" class="icon" src="@/assets/mic.svg" alt="Start Recording">
+      <img v-if="!recording" class="icon" src="@/assets/mic.svg" alt="Start Recording">
       <img v-else src="@/assets/stop.svg" class="icon" alt="Stop Recording">
     </button>
     <span>Transcript:</span>
@@ -20,12 +20,13 @@ export default {
       socket: null,
       recorder: null,
       stream:null,
+      recording: false,
       text: '',
     };
   },
   methods: {
     button: function() {
-      if(this.recorder?.state == 'recording') {
+      if(this.recording) {
         this.stop();
       } else {
         this.start();
@@ -59,10 +60,12 @@ export default {
             this.stream.write(new ss.Buffer(await event.data.arrayBuffer()));
           };
           this.recorder.start(1000);
+          this.recording = true;
         });
       });
     },
     stop: function () {
+      this.recording = false;
       this.recorder.stop();
       this.stream.end();
       //this.stream.end();
