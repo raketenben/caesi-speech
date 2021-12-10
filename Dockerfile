@@ -1,5 +1,6 @@
 FROM node:15.14.0-buster
 RUN apt-get update
+RUN apt install -y ffmpeg
 WORKDIR /usr/app
 COPY ./src/ src/
 COPY ./public/ public/
